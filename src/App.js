@@ -1,25 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css"
+import { Route, Routes, useNavigate,useLocation } from 'react-router-dom'
+import Calender from './Components/Calender';
+import Goals from './Components/Goals';
+import Home from './Components/Home';
+import Profile from './Components/Profile';
+import Projects from './Components/Projects';
+import Sidebar from './Components/Sidebar';
+import Footer from './Footer/Footer';
+import Navbar from './Header/Navbar';
+import Protected from './Components/Protected';
+import HomeWork from './Components/HomeWork';
+import Notifications from './Components/Notifications';
+
+import Symptom from './Components/Symptom';
+import Notes from './Components/Notes';
+import NotesDisp from './Components/NotesDisp';
+import Chart from './Components/Chart';
+
+
+
+const App=()=> {
+    
+  const [userDetails, setUserDetails] = useState();
+  const [isLoggedIn, setisLoggedIn] = useState(null);
+  
+  const location = useLocation();
+  let HomePageStyling ='content-main container-fluid'
+  if (location.pathname === '/') {
+    HomePageStyling = '';
 }
 
-export default App;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    
+    const token=localStorage.getItem('token')
+    if(!token){
+      setisLoggedIn(false)
+    }
+    else
+    {
+      setisLoggedIn(true)
+    }
+    //   const id = localStorage.getItem("id")
+    // setAccountType(Account)
+  }, [isLoggedIn]);
+
+  return (
+    <>
+     { <Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}
+     <div className={HomePageStyling}>
+      {isLoggedIn &&<Sidebar />}
+      <Routes>
+        <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}  />
+     
+        <Route path="/therapy-notes" element={<Protected isLoggedIn={isLoggedIn}> <div className='main'>  <Projects/></div></Protected>}/>
+        <Route path="/goals" element={<Protected isLoggedIn={isLoggedIn}> <div className='main'><Goals/></div></Protected>}/>
+        <Route path="/Calendar" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Calender/></div></Protected>}/>
+        <Route path="/profile" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Profile /></div></Protected>}/>
+        <Route path="/notification" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Notifications/></div></Protected>}/>
+        <Route path="/symptom-tracking" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Symptom /></div></Protected>}/>
+        <Route path="/homework" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><HomeWork /></div></Protected>}/>
+        <Route path="/notes" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Notes /></div></Protected>}/>
+        <Route path="/chart" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Chart /></div></Protected>}/>
+        <Route path="/notesdisp" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><NotesDisp /></div></Protected>}/>
+      </Routes>
+      </div>
+      <div className='footer-app'><Footer /></div>      
+    </>
+  );
+}
+export default App

@@ -1,0 +1,60 @@
+.topleft {
+    
+   
+    font-size: 18px;
+  }
+  .input-feilds {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+  
+  .input-feilds > div {
+  flex: 50%; 
+}
+  input, label {
+    display:block;
+}
+.profile-img {
+  width: 150px;
+  border-radius: 50%;
+  height: 150px;
+  border: 3px solid #FF4F5A;
+}
+  .mainContainer{
+    position: absolute;
+  }
+  .form-devider {
+    display: flex;
+    width: 100%;
+    padding: 0 0 0 50px;
+    position: relative;
+}
+.user-image {
+  transform: translate(0px, -85px);
+}
+.input-feilds label {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  width: 34%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.input-feilds label input {
+  border: 1px solid #A9A9A9;
+  border-radius: 8px;
+  height: 35px;
+}
+.input-feilds button{
+  background: #FF4F5A;
+  border: none;
+  width: 100%;
+}

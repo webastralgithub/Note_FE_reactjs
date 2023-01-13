@@ -1,0 +1,38 @@
+.radio-input-head{
+    position: relative;
+    margin-bottom: 20px;
+}
+.radio-input-head:before {
+    content: "";
+    top: 7px;
+    left: 0;
+    position: absolute;
+    max-width: 410px;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    z-index: -1;
+}
+.radio-input-head .bullet-div {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9.26px;
+    line-height: 11px;
+    color: #000000;
+    gap: 6px;
+}
+.radio-input-head .bullet-div  input[type='radio']{
+    width: 15px;
+    height: 15px;
+    accent-color: #FF4F5A;
+    }
+    .btn-save {
+        background: #FF4F5A;
+        border-radius: 6px;
+        border: none;
+    }

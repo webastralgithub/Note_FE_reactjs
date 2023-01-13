@@ -1,0 +1,287 @@
+
+.new{
+
+  text-align: center;
+}
+.button{
+  width: 152px !important;
+  height: 49px !important;
+  left: 760px !important;
+  top: 472px !important;
+  background: #FF4F5A;
+  border-radius: 10px !important;
+}
+
+.top-banner{
+  display: flex;
+  margin-top: 20px;
+}
+
+.top-banner .top-banner-left-cnt{
+  width: 50%;
+}
+
+.top-banner .top-banner-left-cnt .top-banner-left-cnt-img{
+  width: 100%;
+}
+
+.top-banner .top-banner-left-cnt .top-banner-left-cnt-img img{
+  width: 90%;
+  padding-right: 30px;
+}
+
+.top-banner .top-banner-right-cnt {
+  width: 50%;
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.banner-grey-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 7.5px;
+  color: #656D72;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+}
+.login-modal .modal-dialog{
+  max-width: 600px !important;
+}
+.login-modal .modal-content{
+  padding: 20px;
+}
+.blue-heading{
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 55px;
+  color: #0D3643;
+  
+}
+.banner-para{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 32px;
+color: #232E35;
+}
+.login-btn, .signup-btn {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #FFFFFF;
+  background: #FF4F5A ;
+  border-radius: 10px !important;
+  line-height: 22px;
+  width: 100%;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.signup-btn{
+  background-color: #0B394E !important;
+}
+.btn-head {
+  display: flex;
+  gap: 20px;
+}
+.download-banner{
+  background: url(/public/images/download-banner.png) no-repeat center center;
+  background-size: cover;
+  padding: 80px 50px;
+  border-radius: 27px;
+}
+.download-btn-head{
+  display: flex;
+}
+.download-banner h2 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #FFFFFF;
+}
+.download-banner  p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 23px;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+.dounload-inner {
+  max-width: 50%;
+}
+.download-btn-head button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-right: 20px;
+}
+.story-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.story-section{
+  padding: 50px 0;
+}
+.story-head h4 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #0D3643;
+  margin-bottom: 40px;
+}
+.list-head li{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 32px;
+color: #232E35;
+margin-bottom: 30px;
+}
+.list-head {
+  list-style: none;
+}
+.list-head li{
+  position: relative;
+}
+.list-head li:before {
+  content: "";
+  width: 20px;
+  height: 4px;
+  background: #FF4F5A;
+  position: absolute;
+  top: 15px;
+  left: -30px;
+}
+.story-head .blue-heading:before {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #FF4F5A;
+  position: absolute;
+  top: 28px;
+  left: -73px;
+}
+.story-head .blue-heading::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #FF4F5A;
+  position: absolute;
+  top: 28px;
+  right: -73px;
+}
+.story-head .blue-heading {
+  position: relative;
+  display: inline-block;
+}
+.banner-grey-text:before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #D9D9D9;
+  position: absolute;
+  top: 11px;
+  left: -32px;
+}
+.top-banner-right-cnt .banner-grey-text:before {
+  left: 3px;
+}
+.top-banner-right-cnt .banner-grey-text {
+  padding-left: 38px;
+}
+.subscriptions {
+  padding: 60px 100px;
+}
+.news-left p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 7.5px;
+  color: #656D72;
+  position: relative;
+  padding-left: 30px;
+}
+.news-left h2 {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 55px;
+  color: #0D3643;
+  width: 60%;
+}
+.news-right p{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 23px;
+letter-spacing: 1px;
+color: #7A7A7A;
+}
+.news-input-head {
+  display: grid;
+  height: 50px;
+  grid-template-columns: 2fr 1fr;
+}
+.news-input-head input{
+  background: #FFFFFF;
+  border: 1px solid #565656;
+  border-radius: 8px 0px 0px 8px;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+color: #656D72;
+border-right: none;
+
+}
+.news-input-head button {
+  background: #FF4F5A;
+  border-radius: 0px 8px 8px 0px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  color: #F5F3FE;
+  border: none;
+}
+.news-left p:before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: #D9D9D9;
+  position: absolute;
+  top: 11px;
+  left: 1px;
+}
+.news-right {
+  align-self: center;
+}
