@@ -69,7 +69,15 @@ convert(res.data);
     setChartData(res.data);
   } if(view==3){
     setKeyName('day')
-  setChartData(res.data[selectedWeek.current.value]);
+ 
+    const keyValue = (input) => Object.entries(input).map(([key,value]) => {
+    return {
+    day:key,
+    rating:value
+      }
+    })
+   
+  setChartData(keyValue(res.data[selectedWeek.current.value].daily));
  }
 }
 const token =JSON.parse(localStorage.getItem('token'));
@@ -84,7 +92,8 @@ function convert(data){
 data.forEach((element, index) => {
    
         data[index].month = new Date(data[index].month+'-1-01').getMonth()+1;
-    
+        console.log(new Date(data[index].month+'-1-01').getMonth()+1,"Dfdfafdaaf")
+    console.log( data[index].month,"Dfdfafdaaf")
 });
 console.log(chartData)
 var prevRating=0

@@ -1,3 +1,8 @@
+.container-fluid{
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }
@@ -45,7 +50,7 @@ input[type=number] {
   background: #E1EEF4;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
     border-radius: 6px;
-    font-family: 'Plus Jakarta Sans';
+    font-family:'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 18px;

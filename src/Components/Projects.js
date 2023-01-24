@@ -7,15 +7,18 @@ import MiniHeader from './MiniHeader';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import NotesDisp from './NotesDisp';
 
 
 const Projects = () => {
-  const location = useLocation()
+ 
 
  
 
   const[goals,setGoals]=useState([])
-  const[notes,setNotes]=useState("")
+  const[notes,setNotes]=useState()
+  const[notesText,setNotesText]=useState("")
+  const[notesScreen,setNotesScreen]=useState(false)
   const [selected, setSelected] = useState();
   const [weekly, setWeekly] = useState();
   const [achieved,setAchieved]=useState()
@@ -32,21 +35,44 @@ const title=useRef("")
  
 
   useLayoutEffect(() => {
-    if(location.state){
-      var { from } = location?.state
-      title.current.value=from.title
-        setSelected(from.question_id)
-      text.current.value=from.description
-      setAchieved(from.goal_rating)
-       setWeekly(from.weekly_rating)
-       setSelectedGoal(from.goal_id)
-        previous.current.value=from.previous_week_description
-   
+    (async () => {
+      try {
+        const response = await 
+          axios.get(`${url}/note`,config)
+console.log(response.data.data)
+        setNotes(
+       response.data.data
+        
+          );
+      } catch (error) {
+        console.log(error);
       }
+    })();
+
+    
    getGoals()
 
    
   }, []);
+
+
+  const changeScreen=(from)=>{
+    
+  console.log('here',from.title)
+    
+        title.current=from.title
+        setSelected(from.question_id)
+      text.current=from.description
+      setAchieved(from.goal_rating)
+       setWeekly(from.weekly_rating)
+       setSelectedGoal(from.goal_id)
+        previous.current=from.previous_week_description
+   
+    
+    setNotesScreen(true)
+  }
+
+
   const token =JSON.parse(localStorage.getItem('token'));
   let config = {
     headers: {
@@ -66,18 +92,23 @@ const title=useRef("")
    const submit= async()=>{
     const body ={
     
-     notes:notes,
+     
      title:title.current.value,
-     question:selected,
-     text:text.current.value,
-     achieved:achieved,
-     weekly:weekly,
-     goal:selectedGoal,
-     previous:previous.current.value
+     question_id:selected,
+     answer:text.current.value,
+     goal_rating:achieved,
+     weekly_rating:weekly,
+     goal_id:selectedGoal,
+     previous_week_description:previous.current.value
 
     }
+    var form_data = new FormData();
+   
+    for ( var key in body ) {
+        form_data.append(key, body[key]);
+    }
 console.log(body)
-    //const res = await axios.post(`${url}/goal`,body,config);
+    const res = await axios.post(`${url}/note`,form_data,config);
 
    }
   let arr=[]
@@ -115,7 +146,37 @@ console.log(body)
   return (
     <div>
     <MiniHeader head='Therapy Notes' />
+   {!notesScreen&& <div>
+    
+    <div className='search-filter'>
+    <input/>
+    <div className='short'>
+    Short:<Button><img src='/images/short.svg'/></Button></div>
+    </div>
+  <div className='addnotes-wrapper'>
+   <div className='addnote-child addone-value' onClick={()=>{
+    setNotesScreen(true)
+  }}>
+    <img src='/images/addnote.svg'/>
+   <p>New note</p>
+    </div>
+    
+    {notes?.length>0&& notes.map(note=><div className='addnote-child'>
+    <h5>{note.created_at.slice(0,10)}</h5>
+    <p>{note.title}</p>
+    <div className='timing'>
+    <p>{new Date(note.created_at).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p>
+<img onClick={()=>{
+  changeScreen(note)
+
+}} src='/images/right-arrow.svg'/></div>
+    </div>)}
+    
    
+   
+    </div>
+    </div>}
+    {notesScreen && <div>
     <form >
   <div class="input-group">
   
@@ -129,7 +190,7 @@ console.log(body)
 </form>
 <label>Title</label>
 <input ref={title} style={{width:'100%',height:"107px"}} type='text'></input>   
-<TextEditor setNotes={setNotes}/>
+<TextEditor setNotesText={setNotesText}/>
 <h4 className='therepy-headings'>Select a Question to Write About</h4>
 <select
   className="form-control therepy-select"
@@ -204,6 +265,7 @@ to your Goals</p>
    </div>
    <button><img src="/images/del.png" alt="my image"  /></button>.
    <button onClick={submit}><img src="/images/save.png" alt="my image" /></button>
+   </div>}
  </div>
 
   )

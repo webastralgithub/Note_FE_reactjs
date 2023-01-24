@@ -3,9 +3,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import "./login.css"
 import axios from 'axios'
-import { FaEnvelope, FaLock, FaMobile, FaPhone, FaUser } from 'react-icons/fa'
+import { FaEnvelope, FaEye, FaEyeSlash, FaLock, FaMobile, FaPhone, FaUser } from 'react-icons/fa'
 const Login = ({login,setLogin,isLoggedIn,setisLoggedIn}) => {
   const navigate=useNavigate()
+
+  const [passwordType, setPasswordType] = useState("password");
+    const [passwordInput, setPasswordInput] = useState("");
   const [error, setError] = useState(null);
 const [obj,setObj]=useState({})
 const [image,setImage]=useState('/images/download.png')
@@ -15,6 +18,14 @@ useEffect(() => {
 }, [obj]);
 const url=process.env.REACT_APP_API_KEY
 
+const togglePassword =()=>{
+  if(passwordType==="password")
+  {
+   setPasswordType("text")
+   return;
+  }
+  setPasswordType("password")
+}
 
 const handleChange=(e)=>{
   if(error){
@@ -200,7 +211,7 @@ const onChangePhoto = async(e) => {
     <div  className="mb-3 input-box">
      
     <FaLock /> <input
-    type="password"
+    type={passwordType}
     className='inp'
     name="password"
     placeholder="Password"
@@ -208,6 +219,9 @@ const onChangePhoto = async(e) => {
     onChange={handleChange}
     
   />
+  <div onClick={togglePassword}>
+                     { passwordType==="password"?<FaEye /> :<FaEyeSlash /> }
+                     </div>
   </div>
   <div  className="mb-3 input-box">
      

@@ -11,6 +11,7 @@ import "./Calender.css"
 
 import axios from 'axios';
 import { filter } from 'draft-js/lib/DefaultDraftBlockRenderMap';
+import { MonthView } from 'react-calendar';
 const INITIAL_STATE = {
   
  title: "",
@@ -103,7 +104,13 @@ console.log([...appData, newObj])
   })
   }
 
-
+  function convert(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
+  }
+  
 
   const handleInput = (e) => {
     const object = {};
@@ -131,9 +138,10 @@ console.log([...appData, newObj])
     <MiniHeader head='Calendar'/>
     <FullCalendar
     events={appData}
+    
     eventClick={
       function(arg){
-     
+    
       setArgs({
         title:arg.event.title,
         start:arg.event.start,
@@ -160,7 +168,7 @@ console.log([...appData, newObj])
    <div>
    <button style={{border:"none",background:"transparent"}} onClick={()=>setShowEvent(false)} ><img className='img-fluid' src="/images/cross.png"/></button> 
    <p>
-   {args?.start.toISOString().slice(0,10)}
+   {convert(args?.start)}
    </p>
    {args?.time}
    <p>

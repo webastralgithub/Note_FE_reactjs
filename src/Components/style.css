@@ -1,6 +1,5 @@
 
 .new{
-
   text-align: center;
 }
 .button{
@@ -37,7 +36,7 @@
 }
 
 .banner-grey-text {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -55,7 +54,7 @@
   padding: 20px;
 }
 .blue-heading{
-  font-family: 'Plus Jakarta Sans';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 44px;
@@ -64,15 +63,16 @@
   
 }
 .banner-para{
-  font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 32px;
-color: #232E35;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 32px;
+  color: #232E35;
+  margin: 17px 0 30px;
 }
 .login-btn, .signup-btn {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -96,17 +96,33 @@ color: #232E35;
   display: flex;
   gap: 20px;
 }
-.download-banner{
-  background: url(/public/images/download-banner.png) no-repeat center center;
-  background-size: cover;
-  padding: 80px 50px;
-  border-radius: 27px;
+
+.download-banner-outer{
+  margin: 40px 0 0;
 }
+
+.download-banner{
+  background: url(/public/images/bannerColour.png) no-repeat center center;
+  background-size: cover;
+  padding: 0px 50px;
+  border-radius: 27px;
+  display: flex;
+  align-items: center;
+}
+
+.download-banner .dounload-inner-right{  
+  text-align: right;
+}
+
+.download-banner .dounload-inner-right img{  
+  width: 70%;
+}
+
 .download-btn-head{
   display: flex;
 }
 .download-banner h2 {
-  font-family: 'Plus Jakarta Sans';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -114,7 +130,7 @@ color: #232E35;
   color: #FFFFFF;
 }
 .download-banner  p {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -141,7 +157,7 @@ color: #232E35;
   padding: 50px 0;
 }
 .story-head h4 {
-  font-family: 'Plus Jakarta Sans';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 21px;
@@ -152,7 +168,7 @@ color: #232E35;
   margin-bottom: 40px;
 }
 .list-head li{
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
@@ -211,12 +227,13 @@ margin-bottom: 30px;
 }
 .top-banner-right-cnt .banner-grey-text {
   padding-left: 38px;
+  margin-bottom: 15px;
 }
 .subscriptions {
-  padding: 60px 100px;
+  padding: 60px 0px;
 }
 .news-left p {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -227,18 +244,18 @@ margin-bottom: 30px;
   padding-left: 30px;
 }
 .news-left h2 {
-  font-family: 'Plus Jakarta Sans';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 44px;
   line-height: 55px;
   color: #0D3643;
   width: 60%;
 }
 .news-right p{
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 font-style: normal;
-font-weight: 400;
+font-weight: 300;
 font-size: 13px;
 line-height: 23px;
 letter-spacing: 1px;
@@ -253,26 +270,33 @@ color: #7A7A7A;
   background: #FFFFFF;
   border: 1px solid #565656;
   border-radius: 8px 0px 0px 8px;
-  font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 21px;
-color: #656D72;
-border-right: none;
-
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #656D72;
+  border-right: none;
+  padding: 16px 20px;
 }
 .news-input-head button {
   background: #FF4F5A;
   border-radius: 0px 8px 8px 0px;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 27px;
   color: #F5F3FE;
   border: none;
 }
+
+.news-input-head button img{
+  width: 22px;
+  margin-left: 13px;
+  margin-top: -3px;
+}
+
 .news-left p:before {
   content: "";
   width: 18px;

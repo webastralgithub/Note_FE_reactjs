@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useLayoutEffect} from 'react'
 import { Button } from 'react-bootstrap'
 import MiniHeader from './MiniHeader'
 import "./homework.css"
@@ -12,8 +12,33 @@ const INITIAL_STATE = {
   file:""
 };
 
+
+
 const HomeWork = () => {
   const [data, setData] = useState(INITIAL_STATE);
+  const[homeworkData,setHomeworkData]=useState([])
+  const[homeworkScreen,setHomeworkScreen]=useState(false)
+
+
+
+
+  useLayoutEffect(() => {
+    (async () => {
+      try {
+        const response = await 
+          axios.get(`${url}/homework`,config)
+console.log(response.data.data)
+        setHomeworkData(
+       response.data.data
+        
+          );
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+
   
   const[msg,setMsg]=useState('')
   const [previewFile, setPreviewFile] = useState('');
@@ -23,6 +48,19 @@ let config = {
   headers: {
     'Authorization': `Bearer ${token}`
   }
+}
+
+const changeScreen=(note)=>{
+  setData(
+
+    {
+      short_description: note.short_description,
+      description: note.description,
+      thoughts:note.thoughts,
+      file:note.file,
+    }
+  )
+  setHomeworkScreen(true)
 }
   const handleInput = (e) => {
     console.log(e.target.name, " : ", e.target.value);
@@ -59,7 +97,26 @@ for ( var key in data ) {
   return (
     <div>
     <MiniHeader head='HomeWork'/>
-    <form onSubmit={handleSubmit}>
+    {!homeworkScreen && <div className='addnotes-wrapper'>
+ <div className='addnote-child addone-value'  onClick={()=>{
+  setHomeworkScreen(true)
+}}>
+    <img src='/images/addnote.svg'/>
+   <p>New note</p>
+    </div>
+    { homeworkData?.length>0&& homeworkData.map(note=><div className='addnote-child'>
+    <h5>{note.created_at.slice(0,10)}</h5>
+    <p>{note.short_description}</p>
+    <div className='timing'>
+    <p>{new Date(note.created_at).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}</p>
+   <img onClick={()=>{
+     changeScreen(note)
+
+   }} src='/images/right-arrow.svg'/></div>
+    </div>)}
+
+    </div>}
+  {homeworkScreen&&  <form onSubmit={handleSubmit}>
     <div className='homework-image-section' style={{display:'flex'}}>
     <img src='/images/atwork1.png' />
     <span>
@@ -96,7 +153,7 @@ for ( var key in data ) {
   <button type='submit' className='btn-save'>Save</button>
 
   </div>
-  </form>
+  </form>}
     </div>
   )
 }

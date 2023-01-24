@@ -36,7 +36,7 @@ console.log(response.data.data)
     
   return (
     <div>
-    <MiniHeader head='Calendar'/>
+    
     <div className='search-filter'>
     <input/>
     <div className='short'>

@@ -5,7 +5,7 @@ import { convertToHTML } from 'draft-convert'
 
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-export default function TextEditor({setNotes}){
+export default function TextEditor({setNotesText}){
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty(),
   );
@@ -17,7 +17,7 @@ export default function TextEditor({setNotes}){
   const convertContentToHTML = () => {
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
     setConvertedContent(currentContentAsHTML);
-    setNotes(currentContentAsHTML)
+    setNotesText(currentContentAsHTML)
     console.log(currentContentAsHTML)
   }
 
