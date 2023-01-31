@@ -1,19 +1,81 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useParams } from "react";
 import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal,Carousel,Card } from "react-bootstrap";
 import "./style.css";
+import "./Home.css"
 import Login from "./Login";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 const Home = ({ isLoggedIn, setisLoggedIn }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState("");
 
+  const { state } = useLocation();
+
+  const reduceReviews = (acc, cur, index) => {
+    const groupIndex = Math.floor(index / 3);
+    if (!acc[groupIndex]) acc[groupIndex] = [];
+    acc[groupIndex].push(cur);
+    console.log(acc);
+    return acc;
+  };
+
+  const reviews = [
+    {
+      id: 1,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "john doe"
+  
+    },
+    {
+      id: 2,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "jane doe"
+    },
+    {
+      id: 3,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "dane doe"
+    },
+    {
+      id: 4,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "sankar doe"
+  
+    },
+    {
+      id: 5,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "johnny doe"
+  
+    },{
+      id: 6,
+      image: "https://fakeimg.pl/300/",
+      content: "fake review",
+      author: "johnson doe"
+  
+    },
+  ]
+  
+
+  
   useEffect(() => {
+  
     const token = localStorage.getItem("token");
     if (isLoggedIn || token) {
       navigate("/therapy-notes");
     }
+   
+    else if(state?.path){
+      handleShow("login")
+    }
+    
   }, []);
   const handleClose = () => {
     setShow(false);
@@ -157,19 +219,45 @@ const Home = ({ isLoggedIn, setisLoggedIn }) => {
 
       <div className="testinomials">
         <div className="container-fluid">
-          MY CLIENTS
-          <h3>Testimonials</h3>
+          <div className="testimonial_head">.
+          <h3>MY CLIENTS</h3>
+          <h2>Testimonials</h2>
+          <Carousel >
+          {reviews.reduce(reduceReviews, []).map((review, index) => (
+
+            <Carousel.Item key={index}>
+            <div className="d-flex justify-content-center" style={{gap:"50px"}}>
+              {review.map((item, index) => {
+                return (
+                  <Card key={index} style={{ width: "20rem" }}>
+                    <Card.Img variant="top" src={item.image} />
+                    <Card.Body>
+                     
+                      
+                <h6>{item.content} rggjsidpg  cxefka edgkdld gegdolgdol jpkk</h6>
+                <h4>-{item.author}</h4>
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+           
+          </div>
         </div>  
       </div>
 
       <div className="subscriptions">
         <div className="container-fluid">
-          <div style={{ display: "flex" }}>
-            <div className="news-left" style={{ width: "50%" }}>
+          <div className="subscriptions-cnt">
+            <div className="news-left">
               <p>Mailing List</p>
               <h2>Subscribe to our Newsletter</h2>
             </div>
-            <div className="news-right" style={{ width: "50%" }}>
+            <div className="news-right">
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's.

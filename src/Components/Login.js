@@ -57,6 +57,7 @@ const validateEmail = (email) => {
     }
     if(!error){
 console.log('here')
+try{
   const response = await axios.post(`${url}/login`,obj) 
   const token = JSON.stringify(response.data.token);
   localStorage.setItem("token",token)
@@ -68,7 +69,12 @@ console.log('here')
   setObj({})
   e.target.reset()
 }
-
+    
+catch(error){
+  console.log(error.response);
+      setError(error.response.data.message)
+}
+    }
 }
 
 const toggle=()=>{
@@ -95,7 +101,7 @@ const signup= async(e)=>{
 var item={...obj,image:image}
 for ( var key in item ) {
     form_data.append(key, item[key]);
-}
+}try{
   const response = await axios.post(`${url}/register`,form_data) 
 
   const token = JSON.stringify(response.data.token);
@@ -107,6 +113,12 @@ for ( var key in item ) {
   setObj({})
   e.target.reset()
 }
+catch(error){
+  console.log(error.response);
+      setError(error.response.data.message)
+}
+    }
+   
 }
 const onChangePhoto = async(e) => {
   setImage(e.target.files[0])

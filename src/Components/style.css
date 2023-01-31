@@ -232,6 +232,59 @@ margin-bottom: 30px;
 .subscriptions {
   padding: 60px 0px;
 }
+
+.subscriptions .subscriptions-cnt{
+  display: flex;
+}
+
+.testinomials{
+  background: rgb(22,72,88);
+  background: linear-gradient(0deg, rgba(22,72,88,1) 0%, rgba(10,57,71,1) 100%);
+  padding: 60px 0;
+}
+.testinomials .testimonial_head h2,h3{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 7.5px;
+  color: #fff;
+  position: relative;
+  padding-left: 30px;
+}
+
+.testinomials .testimonial_head p{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 7.5px;
+  color: #fff;
+  position: relative;
+  padding-left: 30px;
+}
+
+.testinomials .testimonial_head p:before{
+   content: "";
+    width: 18px;
+    height: 2px;
+    background: #D9D9D9;
+    position: absolute;
+    top: 11px;
+    left: 1px;
+}
+
+.testinomials .testimonial_head h2 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 55px;
+  color: #fff;
+}
+
 .news-left p {
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -308,4 +361,71 @@ color: #7A7A7A;
 }
 .news-right {
   align-self: center;
+}
+
+
+@media screen and (max-width: 480px) {
+  .top-banner{
+    display: block;
+  }
+
+  .top-banner .top-banner-left-cnt{
+    width: 100%;
+  }
+
+  .top-banner .top-banner-right-cnt{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .top_nav .navbar .header-logo-top{
+    width: 28% !important;
+  }
+
+  .top-banner .top-banner-left-cnt .top-banner-left-cnt-img img {
+    width: 100%;
+    padding-right: 0px;
+  }
+
+  .download-banner{
+    display: block;
+  }
+
+  .download-banner {
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .download-banner .dounload-inner-right {
+    text-align: center;
+  }
+
+  .dounload-inner{
+    max-width: 100%;
+  }
+
+  .download-banner h2{
+    text-align: center;
+    font-size: 27px;
+  }
+
+  .download-banner p{
+    text-align: center;
+  }
+
+  .download-btn-head{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .download-btn-head button{
+    width: 48%;
+    margin: 0;
+  }
+
+  .download-btn-head button img{
+    width: 100%;
+  }
 }

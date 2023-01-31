@@ -45,7 +45,7 @@ const Footer = () => {
  <Col md={3}>
  <div className='footer-download'>
  <h4>Download Our App</h4></div>
- <div className='platform'>
+ <div className='footer-download-btns platform'>
  <Link to="#"><img src='/images/playstore.png'/></Link>
  <Link to="#"><img src='/images/appstore.png'/></Link></div></Col>
  <Col md={2}>

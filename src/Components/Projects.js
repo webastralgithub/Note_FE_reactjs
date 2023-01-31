@@ -50,7 +50,7 @@ console.log(response.data.data)
     })();
 
     
-   getGoals()
+  
 
    
   }, []);
@@ -61,6 +61,7 @@ console.log(response.data.data)
   console.log('here',from.title)
     
         title.current=from.title
+        setNotesText(from.description)
         setSelected(from.question_id)
       text.current=from.description
       setAchieved(from.goal_rating)
@@ -80,26 +81,21 @@ console.log(response.data.data)
     }
   }
   
-  const getGoals=async()=>{
-   
-   
-   
-        const res = await axios.get(`${url}/goal`,config);
-        setGoals(res.data.data);
-        console.log(res.data.data);
-  }
+ 
    
    const submit= async()=>{
     const body ={
     
      
      title:title.current.value,
-     question_id:selected,
-     answer:text.current.value,
-     goal_rating:achieved,
-     weekly_rating:weekly,
-     goal_id:selectedGoal,
-     previous_week_description:previous.current.value
+   //  question_id:selected,
+
+     description:notesText,
+    //  answer:text.current.value,
+    //  goal_rating:achieved,
+    //  weekly_rating:weekly,
+    //  goal_id:selectedGoal,
+    //  previous_week_description:previous.current.value
 
     }
     var form_data = new FormData();
@@ -111,38 +107,7 @@ console.log(body)
     const res = await axios.post(`${url}/note`,form_data,config);
 
    }
-  let arr=[]
-    for(let i=1;i<=10;i++){
-      arr.push(i)
-    }
-    const notesQuestions = [
-      { id: 0, title: "What I feel proud of this week!", isSelected: true },
-      { id: 1, title: "Wins of the week ", count: "12", isSelected: false },
-      { id: 2, title: "Challenges of the week ", isSelected: true },
-      { id: 3, title: "Topics I want to talk about in therapy", count: "12", isSelected: false },
-      { id: 4, title: "Write about your self care for the week ", isSelected: true },
-      { id: 5, title: "General journal entry for the week ", count: "12", isSelected: false },
-      { id: 6, title: "Growth or change I noticed over the week  ", count: "12", isSelected: false },
-      { id: 7, title: "New things I tried this week  ", count: "12", isSelected: false },
-      { id: 8, title: "Things to work on this week", count: "12", isSelected: false },
-    ]
-    const getQuestions=()=> {
-    
-    console.log(selected)
-      return notesQuestions.map((goal) => {
-        return <option   value={goal.id} selected={goal.id==selected}>{goal.title} 
-               </option>;
-      });
-    }
-  const getCountry=()=> {
-    
-    
-    return goals.map((goal) => {
-      
-      return <option    selected={goal.id==selectedGoal}  value={goal.id}>{goal.title} 
-             </option>;
-    });
-  }
+ 
   return (
     <div>
     <MiniHeader head='Therapy Notes' />
@@ -178,11 +143,11 @@ console.log(body)
     </div>}
     {notesScreen && <div>
     <form >
-  <div class="input-group">
+  <div className="input-group">
   
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
+    <div className="input-group-btn">
+      <button className="btn btn-default" type="submit">
+        <i className="glyphicon glyphicon-search"></i>
       </button>
     </div>
  
@@ -190,79 +155,9 @@ console.log(body)
 </form>
 <label>Title</label>
 <input ref={title} style={{width:'100%',height:"107px"}} type='text'></input>   
-<TextEditor setNotesText={setNotesText}/>
-<h4 className='therepy-headings'>Select a Question to Write About</h4>
-<select
-  className="form-control therepy-select"
- style={{width:'40%'}}
-  aria-label="Floating label select example"
-  onChange={e => setSelected(e.currentTarget.value)}
+<TextEditor setNotesText={setNotesText} notesText={notesText}/>
 
-  >
-  
-  <option value="choose" disabled >
-  <p>Select question</p>
-  </option>
-  {getQuestions()}
-  </select>
- <p className='therepy-headings'> Enter your text here* </p>
 
-   <input ref={text} style={{width:'100%',height:"107px"}} type='text'></input>   
-   <p className='therepy-headings'>Weekly Rating</p>
-   <p style={{color:"#585858"}}>Pick a number to rate your past week, with 10 being the best ever and 1 being the worst.</p>
-  
-<div className='radio-input-head' style={{display:'flex'}}>
-{arr.map((num)=>(  <div className='bullet-div'>
- 
-     <input checked={num==weekly} type="radio" value={num}  onChange={e => setWeekly(e.currentTarget.value)}  name='weekly'>
-     </input>
-     {num}
-     </div>
-))}
-</div>
- 
-<p>Enter a word to describe your previous week:</p>
-   <input ref={previous} style={{width:'100%',height:"107px"}} type='text'></input>   
-   <div style={{display:'flex'}}>
-   <div style={{width:"50%"}}>
-   <img  src='/images/goals.png'/>
-   </div>
-   <div style={{width:"50%"}}>
-   
-   
-  
-   <p className='therepy-headings'>Select a goal to track
-   </p>
-   <select
-   className="form-control therepy-select"
-   style={{width:'40%'}}
-    aria-label="Floating label select example"
- 
-  onChange={e => setSelectedGoal(e.currentTarget.value)}
-  >
-  <option value="choose" disabled >
-  <p>Add or delete multiple Fields according
-to your Goals</p>
-  </option>
-  {getCountry()}
-  </select>
-  <p className='therepy-headings'> Rating</p>
-  <p style={{color:"#585858"}}>Pick a number between 1 and 10 to denote where you are in relation to achieving your goal. For reference, 1 would be used for the day you set your goal here, and 10 would mean you have achieved it.
-  </p>
- 
-  <div className='radio-input-head' style={{display:'flex'}}>
-{arr.map((num)=>(  <div className='bullet-div'>
- 
-     <input type="radio"  checked={num==achieved} onChange={e => setAchieved(e.currentTarget.value)} value={num} name='rare'>
-     </input>
-     {num}
-     </div>
-))}
-</div>
- 
-   </div>
-   
-   </div>
    <button><img src="/images/del.png" alt="my image"  /></button>.
    <button onClick={submit}><img src="/images/save.png" alt="my image" /></button>
    </div>}

@@ -27,15 +27,15 @@ navigate("/")
            
         
              
-       {!isLoggedIn ?   <Nav className="me-auto"> <Link to="/home" class="nav-item nav-link px-3">Home</Link>
-            <Link to="/therapy-notes" class="nav-item nav-link px-3">Therapy Notes</Link>
-            <Link to="/goals" class="nav-item nav-link px-3">Goals</Link>
-            <Link to="/profile" class="nav-item nav-link px-3">Profile</Link>
-            <Link to="/Calendar" class="nav-item nav-link px-3">Calendar</Link>
-            <Link to="/notification" class="nav-item nav-link px-3">Notification</Link>
-            <Link to="/homework" class="nav-item nav-link px-3">Homework</Link>
-            </Nav>: <Nav className="me-auto">   <Link to="/goals" class="nav-item nav-link px-3">Goals</Link>
-            <Button onClick={onLogout} class="nav-item nav-link px-3">Logout</Button>   </Nav>}
+       {!isLoggedIn ?   <Nav className="me-auto"> <Link to="/home" className="nav-item nav-link px-3">Home</Link>
+            <Link to="/therapy-notes" className="nav-item nav-link px-3">Therapy Notes</Link>
+            <Link to="/goals" className="nav-item nav-link px-3">Goals</Link>
+            <Link to="/profile" className="nav-item nav-link px-3">Profile</Link>
+            <Link to="/Calendar" className="nav-item nav-link px-3">Calendar</Link>
+            <Link to="/notification" className="nav-item nav-link px-3">Notification</Link>
+            <Link to="/homework" className="nav-item nav-link px-3">Homework</Link>
+            </Nav>: <Nav className="me-auto">   <Link to="/goals" className="nav-item nav-link px-3">Goals</Link>
+            <Button onClick={onLogout} className="nav-item nav-link px-3">Logout</Button>   </Nav>}
          
         </Navbar.Collapse>
       </Container>

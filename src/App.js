@@ -66,7 +66,7 @@ const App=()=> {
         <Route path="/homework" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><HomeWork /></div></Protected>}/>
         <Route path="/notes" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Notes /></div></Protected>}/>
         <Route path="/chart" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Chart /></div></Protected>}/>
-        <Route path="/notesdisp" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><NotesDisp /></div></Protected>}/>
+        <Route path="/tracking" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><NotesDisp /></div></Protected>}/>
       </Routes>
       </div>
       <div className='footer-app'><Footer /></div>      
