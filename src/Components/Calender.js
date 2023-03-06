@@ -2,7 +2,6 @@
 import React, { useState ,useRef,useLayoutEffect} from 'react';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
-import timeGridPlugin from '@fullcalendar/timegrid';
 
 import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 import MiniHeader from './MiniHeader'
@@ -138,14 +137,8 @@ console.log([...appData, newObj])
     <div>
     <MiniHeader head='Calendar'/>
     <FullCalendar
-    defaultView="timeGridWeek"
-    headerToolbar={{
-      start: "today prev next",
-      center:"title",
-          end: "dayGridMonth dayGridWeek dayGridDay",
-    }}
     events={appData}
- 
+    
     eventClick={
       function(arg){
     
@@ -160,10 +153,9 @@ console.log([...appData, newObj])
 
       }
     }
-    plugins={[ dayGridPlugin, timeGridPlugin,interactionPlugin]}
+    plugins={[ dayGridPlugin, interactionPlugin]}
  dateClick={handleDateClick}
-
-   
+    navLinks={true}
 
   />
    <Modal className='calendar-modal'  show={showEvent}

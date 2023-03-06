@@ -180,7 +180,7 @@ const getCountry=()=> {
     <MiniHeader head='Symptoms' />
     </div>
     <div>
-    <div style={{display:'flex',gap:"10%",marginBottom:"5%"}}><div className='input-head' style={{width:"40%"}}>
+    <div style={{gap:"10%",marginBottom:"5%"}}><div className='input-head' style={{width:"48%"}}>
     <select
     className="form-control"
     ref={selected}
@@ -192,8 +192,8 @@ const getCountry=()=> {
     {getCountry()}
     </select>
     </div>
-    <div style={{width:"60%"}}>
-    <div>
+    <div style={{width:"100%"}} className="chart_options">
+    <div className="custom_btn">
     <button className="button" onClick={() => setView(1)}>Year</button>
     <select 
     className="form-control"
@@ -205,6 +205,7 @@ const getCountry=()=> {
       <option key={`year${index}`} value={year}>{year}</option>))}
       </select>
     </div>
+    <div className="custom_btn">
     <button className="button" onClick={() =>setView(2)}>Month</button>
     <select
     className="form-control"
@@ -217,7 +218,8 @@ const getCountry=()=> {
       </option>
     ))}
   </select>
-  <div>
+  </div>
+  <div className="custom_btn">
     <button className="button"  onClick={() =>setView(3)}>Week</button>
     <select
     className="form-control"
@@ -231,7 +233,9 @@ const getCountry=()=> {
     ))}
   </select>
     </div>
+    <div className="custom_btn">
     <button className="button"  onClick={() =>handlesubmit()}>Go</button>
+    </div>
     </div>
     </div>
     <ResponsiveContainer width="100%" height="100%" aspect={3}>

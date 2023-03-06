@@ -120,22 +120,23 @@ setCurrentRating()
   return (
     <div>
     <MiniHeader head='Symptoms' />
-    <div style={{display:'flex'}}>
-    <div style={{width:"50%"}}>
+    <div style={{display:'flex'}} className="symptom">
+    <div style={{width:"40%"}} className="custom_symtom_form">
     <img  src='/images/goals.png'/>
     </div>
-    <div style={{width:"50%"}}>
+    <div className="custom_symtom_section" style={{width:"50%"}}>
 <h4>Add or delete multiple Fields according
 to your Symptoms</h4>
-<div>
-ADD <input ref={goalref} type='text'></input>
+<div className='input_symptom'>
+  <span class="symptom_add">ADD</span>
+<input ref={goalref} type='text'></input>
 
-<span><button className='btn-add' onClick={submit}>Add</button></span>
+<button className='btn-add' onClick={submit}>Add</button>
 
 </div>
 </div>
 </div>
-<div style={{display:'flex'}}>
+<div style={{display:'flex'}} className="custom_symptom_form">
 <Form.Group as={Col} controlId="my_multiselect_field">
 <Form.Label>My Symptoms</Form.Label>
 <Form.Control as="select"  onChange={e => setVal(e.currentTarget.value)}>
@@ -146,7 +147,7 @@ ADD <input ref={goalref} type='text'></input>
 </Form.Control>
 </Form.Group>
 <div style={{width:"5%"}}></div>
-<div style={{width:"55%"}}>
+<div style={{width:"55%"}} className='custom_rating_section'>
 <h4>Rating</h4>
 <p>Pick a number between 1 and 10 to denote where you are in relation to achieving your goal. For reference, 1 would be used for the day you set your goal here, and 10 would mean you have achieved it.</p>
 <div className='radio-input-head' style={{display:'flex'}}>
@@ -164,6 +165,7 @@ ADD <input ref={goalref} type='text'></input>
   <div>
   {sym.symptom}:{sym.rating}
   </div>))}
+  
 <button onClick={saveSymptom} className='btn-save'>Save</button>
 <button onClick={submitdata} className='btn-save'>Submit</button>
 </div>

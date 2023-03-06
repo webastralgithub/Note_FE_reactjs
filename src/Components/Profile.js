@@ -155,7 +155,7 @@ centered
       
         </div>
         </div>
-        <div style={{textAlign:'end'}}>
+        <div style={{textAlign:'end'}} className="custom_profile_btn">
         <button className="btn-save" type="submit">Update</button>
         </div>
       </form>

@@ -1,14 +1,10 @@
-import React, { useEffect, useState} from "react";
-
-
+import React, { useEffect, useState,useParams } from "react";
+import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
+import { Button, Modal,Carousel,Card } from "react-bootstrap";
 import "./style.css";
 import "./Home.css"
 import Login from "./Login";
 import { useLocation, useNavigate } from "react-router-dom";
-import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
-import { Button,Carousel,Card } from "react-bootstrap";
-import Modal from 'react-bootstrap/Modal';
-
 
 const Home = ({ isLoggedIn, setisLoggedIn }) => {
   const navigate = useNavigate();
@@ -17,7 +13,6 @@ const Home = ({ isLoggedIn, setisLoggedIn }) => {
 
   const [isMobile, setIsMobile] = useState(false)
   const [isSingleDevice,setIsSingleDevice]=useState(false)
-
  
 //choose the screen size 
 const handleResize = () => {
@@ -37,8 +32,8 @@ const handleResize = () => {
 
 // create an event listener
 useEffect(() => {
- handleResize()
-},[])
+  window.addEventListener("resize", handleResize)
+})
 
   const { state } = useLocation();
 
@@ -177,8 +172,6 @@ useEffect(() => {
 
                   <Login
                     login={login}
-                    isMobile={isMobile}
-                    isSingleDevice={isSingleDevice}
                     setLogin={setLogin}
                     isLoggedIn={isLoggedIn}
                     setisLoggedIn={setisLoggedIn}
@@ -267,7 +260,7 @@ useEffect(() => {
           <div className="testimonial_head">
           <h3>MY CLIENTS</h3>
           <h2>Testimonials</h2>
-          <Carousel interval={show?null:3000} >
+          <Carousel >
           {reviews.reduce(reduceReviews, []).map((review, index) => (
 
             <Carousel.Item key={index}>

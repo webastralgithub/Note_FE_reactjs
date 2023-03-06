@@ -18,6 +18,7 @@ import Symptom from './Components/Symptom';
 import Notes from './Components/Notes';
 import NotesDisp from './Components/NotesDisp';
 import Chart from './Components/Chart';
+import TermsAndCondition from './Components/TermsAndCondition';
 
 
 
@@ -53,6 +54,7 @@ const App=()=> {
     <>
      { <Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}
      <div className={HomePageStyling}>
+
       {isLoggedIn &&<Sidebar />}
       <Routes>
         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}  />
@@ -67,6 +69,7 @@ const App=()=> {
         <Route path="/notes" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Notes /></div></Protected>}/>
         <Route path="/chart" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><Chart /></div></Protected>}/>
         <Route path="/tracking" element={<Protected isLoggedIn={isLoggedIn}><div className='main'><NotesDisp /></div></Protected>}/>
+        <Route path="/termsandconditions" element={<div><TermsAndCondition /></div>}/>
       </Routes>
       </div>
       <div className='footer-app'><Footer /></div>      

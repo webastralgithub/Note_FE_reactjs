@@ -25,7 +25,7 @@ const Projects = () => {
   const [selectedGoal, setSelectedGoal] = useState();
   const url=process.env.REACT_APP_API_KEY
   
-  const[title,setTitle]=useState()
+const title=useRef("")
  
   const text=useRef('')
   const previous=useRef('')
@@ -60,9 +60,14 @@ console.log(response.data.data)
     
   console.log('here',from.title)
     
-        title.current.value=from.title
+        title.current=from.title
         setNotesText(from.description)
-       
+        setSelected(from.question_id)
+      text.current=from.description
+      setAchieved(from.goal_rating)
+       setWeekly(from.weekly_rating)
+       setSelectedGoal(from.goal_id)
+        previous.current=from.previous_week_description
    
     
     setNotesScreen(true)
@@ -109,7 +114,10 @@ console.log(body)
    {!notesScreen&& <div>
     
     <div className='search-filter'>
-    <input/>
+   
+    <input placeholder='search' className='custom_search_filter'/>
+    <img src='/images/search_icon.png' className='search_img' />
+   
     <div className='short'>
     Short:<Button><img src='/images/short.svg'/></Button></div>
     </div>
@@ -153,8 +161,8 @@ console.log(body)
 <TextEditor setNotesText={setNotesText} notesText={notesText}/>
 
 
-   <button><img src="/images/del.png" alt="my image"  /></button>.
-   <button onClick={submit}><img src="/images/save.png" alt="my image" /></button>
+   <button className='custom_notes'><img src="/images/del.png" alt="my image"  /></button>
+   <button className='custom_notes_save' onClick={submit}><img src="/images/save.png" alt="my image" /></button>
    </div>}
  </div>
 

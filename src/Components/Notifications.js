@@ -7,7 +7,7 @@ const Notifications = () => {
     <div>
     <MiniHeader head='Notifications'/>
    
-    <p><Link to='#'>Therapy  </Link><Link to='#'>  Challenges</Link></p>
+    <p className='custom_notification'><Link to='#'>Therapy  </Link><Link to='#'>  Challenges</Link></p>
     
     </div>
   )

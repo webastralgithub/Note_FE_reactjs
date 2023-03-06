@@ -27,7 +27,7 @@ navigate("/")
            
         
              
-       {!isLoggedIn ?   <Nav className="me-auto"> <Link to="/" className="nav-item nav-link px-3">Home</Link>
+       {!isLoggedIn ?   <Nav className="me-auto"> <Link to="/home" className="nav-item nav-link px-3">Home</Link>
             <Link to="/therapy-notes" className="nav-item nav-link px-3">Therapy Notes</Link>
             <Link to="/goals" className="nav-item nav-link px-3">Goals</Link>
             <Link to="/profile" className="nav-item nav-link px-3">Profile</Link>

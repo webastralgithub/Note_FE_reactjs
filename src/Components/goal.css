@@ -34,9 +34,13 @@
 .input-head select{
     flex-basis: 100%;
     appearance: auto;
+    border: 1px solid #A9A9A9;
+    font-size: 13px !important;
+    color: #000;
+    font-family: poppins;
 }
 .first-input{
-    border-bottom: 1px solid #C2C2C2;
+    border-bottom: 1px solid #A9A9A9;
     padding-bottom: 30px;
     margin-bottom: 20px;
     margin-top: 50px;
@@ -84,10 +88,11 @@ button.goal-btn.btn-save {
     }
     .input-head input {
         flex-basis: auto;
-        width: 48%;
+        width: 100%;
+        margin: 10px 0px;
     }
     button.goal-btn {
-        width: 48%;
+        width: 100%;
         flex-basis: auto;
         padding: 8px;
     }
@@ -101,7 +106,9 @@ button.goal-btn.btn-save {
     .input-head select {
         flex-basis: auto;
         appearance: auto;
-        width: 48%;
+        width: 100%;
+        margin: 10px 0px;
+       
     }
 }
 @media(max-width:576px){
@@ -111,5 +118,8 @@ button.goal-btn.btn-save {
       }
       .goals-wrapper div {
         width: 100% !important;
+        display: block !important;
+        text-align: center;
     }
+
 }

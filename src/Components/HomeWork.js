@@ -96,13 +96,13 @@ for ( var key in data ) {
 
   return (
     <div>
-    <MiniHeader head='HomeWork'/>
+    <MiniHeader head='Homework'/>
     {!homeworkScreen && <div className='addnotes-wrapper'>
  <div className='addnote-child addone-value'  onClick={()=>{
   setHomeworkScreen(true)
 }}>
     <img src='/images/addnote.svg'/>
-   <p>New Homework</p>
+   <p>New note</p>
     </div>
     { homeworkData?.length>0&& homeworkData.map(note=><div className='addnote-child'>
     <h5>{note.created_at.slice(0,10)}</h5>

@@ -51,17 +51,13 @@ const validateEmail = (email) => {
     e.preventDefault()
     if (!validateEmail(obj.email)) {
       setError('Invalid Email');
-      return
     }
 
     if (obj.password.length < 8) {
-      console.log('here')
       setError('Password must be at least 8 chars long');
-        return
     }
-    console.log('he',error)
     if(!error){
-console.log('heres',error)
+console.log('here')
 try{
   const response = await axios.post(`${url}/login`,obj) 
   const token = JSON.stringify(response.data.token);
