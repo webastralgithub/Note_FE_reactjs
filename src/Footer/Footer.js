@@ -11,7 +11,7 @@ const Footer = () => {
     <div className='footer py-5'>
  <Container fluid >
  <Row>
- <Col md={2} className='d-flex align-items-center'>
+ <Col md={2} className='d-flex mb-3 align-items-center'>
  <div className='footer-logo'>
  <Link  to="/"><img src="./images/logo.svg" /></Link>
  </div>
@@ -20,35 +20,35 @@ const Footer = () => {
  <Col md={5} >
  <div className='footer-link'>
  <h4>Quick links</h4>
- <Row>
- <Col md={4}>
+ <Row className='mb-3'>
+ <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Therapy Notes</Link>
  </Col>
- <Col md={4}>
+ <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Contact </Link>
  </Col>
-  <Col md={4}>
+  <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Terms and Conditions</Link>
  </Col> 
- <Col md={4}>
+ <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Calendar</Link>
  </Col>
- <Col md={4}>
+ <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Privacy & Policy</Link>
  </Col>
- <Col md={4}>
+ <Col lg={4} md={6} sm={6} xs={6}>
  <Link to="/therapy-notes">Therapy Notes</Link>
  </Col>
  </Row>
  </div>
  </Col>
- <Col md={3}>
+ <Col lg={2} md={4} sm={6} >
  <div className='footer-download'>
  <h4>Download Our App</h4></div>
- <div className='footer-download-btns platform'>
+ <div className='footer-download-btns platform mb-3'>
  <Link to="#"><img src='/images/playstore.png'/></Link>
  <Link to="#"><img src='/images/appstore.png'/></Link></div></Col>
- <Col md={2}>
+ <Col lg={2} md={4} sm={6}>
  <div className='social-link'>
  <h4>Follow Us on</h4>
  <div className='icon-head'>

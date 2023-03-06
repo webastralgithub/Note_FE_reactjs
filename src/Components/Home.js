@@ -1,19 +1,62 @@
-import React, { useEffect, useState,useParams } from "react";
-import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
-import { Button, Modal,Carousel,Card } from "react-bootstrap";
+import React, { useEffect, useState} from "react";
+
+
 import "./style.css";
 import "./Home.css"
 import Login from "./Login";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
+import { Button,Carousel,Card } from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal';
+
 
 const Home = ({ isLoggedIn, setisLoggedIn }) => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState("");
 
+  const [isMobile, setIsMobile] = useState(false)
+  const [isSingleDevice,setIsSingleDevice]=useState(false)
+
+ 
+//choose the screen size 
+const handleResize = () => {
+
+  if (window.innerWidth < 576){
+    setIsSingleDevice(true)
+  }
+  else{
+    setIsSingleDevice(false)
+  }
+  if (window.innerWidth < 767 && window.innerWidth >= 576) {
+      setIsMobile(true)
+  } else {
+      setIsMobile(false)
+  }
+}
+
+// create an event listener
+useEffect(() => {
+ handleResize()
+},[])
+
   const { state } = useLocation();
 
   const reduceReviews = (acc, cur, index) => {
+    if(isSingleDevice){
+      const groupIndex = Math.floor(index / 1);
+      if (!acc[groupIndex]) acc[groupIndex] = [];
+      acc[groupIndex].push(cur);
+      console.log(acc);
+      return acc;
+    }
+    if(isMobile){
+      const groupIndex = Math.floor(index / 2);
+      if (!acc[groupIndex]) acc[groupIndex] = [];
+      acc[groupIndex].push(cur);
+      console.log(acc);
+      return acc;
+    }
     const groupIndex = Math.floor(index / 3);
     if (!acc[groupIndex]) acc[groupIndex] = [];
     acc[groupIndex].push(cur);
@@ -134,6 +177,8 @@ const Home = ({ isLoggedIn, setisLoggedIn }) => {
 
                   <Login
                     login={login}
+                    isMobile={isMobile}
+                    isSingleDevice={isSingleDevice}
                     setLogin={setLogin}
                     isLoggedIn={isLoggedIn}
                     setisLoggedIn={setisLoggedIn}
@@ -192,7 +237,7 @@ const Home = ({ isLoggedIn, setisLoggedIn }) => {
                 and realized you didn’t know what you wanted to talk about?
               </h4>
             </div>
-            <div style={{ display: "flex" }}>
+            <div className="story-inner">
               <div style={{ width: "50%" }}>
                 <img src="/images/our-story.png" alt="loading" />
               </div>
@@ -219,17 +264,17 @@ const Home = ({ isLoggedIn, setisLoggedIn }) => {
 
       <div className="testinomials">
         <div className="container-fluid">
-          <div className="testimonial_head">.
+          <div className="testimonial_head">
           <h3>MY CLIENTS</h3>
           <h2>Testimonials</h2>
-          <Carousel >
+          <Carousel interval={show?null:3000} >
           {reviews.reduce(reduceReviews, []).map((review, index) => (
 
             <Carousel.Item key={index}>
             <div className="d-flex justify-content-center" style={{gap:"50px"}}>
               {review.map((item, index) => {
                 return (
-                  <Card key={index} style={{ width: "20rem" }}>
+                  <Card key={index} style={{ width: "25rem" }}>
                     <Card.Img variant="top" src={item.image} />
                     <Card.Body>
                      

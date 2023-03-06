@@ -25,7 +25,7 @@ const Projects = () => {
   const [selectedGoal, setSelectedGoal] = useState();
   const url=process.env.REACT_APP_API_KEY
   
-const title=useRef("")
+  const[title,setTitle]=useState()
  
   const text=useRef('')
   const previous=useRef('')
@@ -60,14 +60,9 @@ console.log(response.data.data)
     
   console.log('here',from.title)
     
-        title.current=from.title
+        title.current.value=from.title
         setNotesText(from.description)
-        setSelected(from.question_id)
-      text.current=from.description
-      setAchieved(from.goal_rating)
-       setWeekly(from.weekly_rating)
-       setSelectedGoal(from.goal_id)
-        previous.current=from.previous_week_description
+       
    
     
     setNotesScreen(true)

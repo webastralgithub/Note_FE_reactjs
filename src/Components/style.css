@@ -1,4 +1,7 @@
-
+img {
+ 
+  height: auto;
+}
 .new{
   text-align: center;
 }
@@ -48,7 +51,7 @@
   display: inline-block;
 }
 .login-modal .modal-dialog{
-  max-width: 600px !important;
+  max-width: 700px !important;
 }
 .login-modal .modal-content{
   padding: 20px;
@@ -60,6 +63,7 @@
   font-size: 44px;
   line-height: 55px;
   color: #0D3643;
+  padding-left: 0;
   
 }
 .banner-para{
@@ -240,7 +244,7 @@ margin-bottom: 30px;
 .testinomials{
   background: rgb(22,72,88);
   background: linear-gradient(0deg, rgba(22,72,88,1) 0%, rgba(10,57,71,1) 100%);
-  padding: 60px 0;
+  padding: 70px 0 100px;
 }
 .testinomials .testimonial_head h2,h3{
   font-family: 'Inter', sans-serif;
@@ -251,7 +255,6 @@ margin-bottom: 30px;
   letter-spacing: 7.5px;
   color: #fff;
   position: relative;
-  padding-left: 30px;
 }
 
 .testinomials .testimonial_head p{
@@ -279,12 +282,61 @@ margin-bottom: 30px;
 .testinomials .testimonial_head h2 {
   font-family: 'Inter', sans-serif;
   font-style: normal;
-  font-weight: 600;
-  font-size: 44px;
-  line-height: 55px;
-  color: #fff;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 45px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: 110px;
 }
-
+.testimonial_head 
+ .carousel-inner {
+    overflow: visible;
+}
+.card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 30px 20px;
+}
+img.card-img-top {
+  border: 3px solid #FF4F5A;
+  border-radius: 1000px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-top: -80px;
+}
+.card-body h6 {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 28px;
+  color: #232E35;
+}
+.card-body h6:before,
+.card-body h6:after{
+  content: '"';
+}
+.carousel-indicators button {
+  opacity: 1 !important;
+}
+.carousel a.carousel-control-prev,
+.carousel a.carousel-control-next {
+  display: none;
+}
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: #FF4F5A;
+}
+.card-body h4 {
+  font-family: inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #232E35;
+}
 .news-left p {
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -362,9 +414,128 @@ color: #7A7A7A;
 .news-right {
   align-self: center;
 }
+.top-banner-right-cnt .btn-head .button img {
+  width: 21px;
+}
+.story-inner{
+  display: flex;
+}
+.testimonial_head h3 {
+  padding-left: 30px;
+}
+.testimonial_head h3:before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: #D9D9D9;
+  position: absolute;
+  top: 11px;
+  left: 1px;
+}
+a.nav-item img {
+  width: 8px;
+}
+.timing img {
+  width: 16px;
+}
+.addnote-child.addone-value img {
+  width: 51px;
+}
+/* responsive start ******************************************************************************/
 
+@media screen and (max-width: 767px){
+  .top_nav .navbar .navbar-nav a:last-child {
+    margin-left: 25px !important;
+    display: inline-block;
+    width: 37%;
+    text-align: center;
+}
+  .top-banner {
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.top-banner .top-banner-left-cnt,
+.top-banner .top-banner-right-cnt {
+  width: 100%;
+}
+.top-banner .top-banner-left-cnt .top-banner-left-cnt-img img {
+  width: 100%;
+  padding-right: 0;
+  max-height: 300px!important;
+}
+.download-banner h2 {
+  font-size: 24px;
+  line-height:1.4em;
+}
 
+.download-banner {
+  padding: 0px 30px;
+}
+.download-banner  p {
+  font-size: 12px;
+  line-height: 17px;
+}
+.blue-heading {
+  font-size: 30px;
+}
+.story-inner {
+  flex-direction: column;
+  row-gap: 20px;
+}
+.story-inner div {
+  width: 100% !important;
+}
+.news-left {
+  text-align: center;
+}
+.subscriptions .subscriptions-cnt {
+  flex-direction: column;
+}
+.news-left p {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.news-left h2 {
+  line-height: 1.4em;
+  width: 100%;
+  font-size: 30px;
+}
+/* .footer-download-btns a {
+  width: 20%;
+} */
+}
+@media  screen and (max-width:576px) {
+  .sidenav {
+    display: none;
+}
+  .footer-download-btns a {
+    width: 30% !important;
+}
+.news-right {
+  width: 100%;
+}
+.news-input-head input {
+  width: 100%;
+}
+.story-section {
+  padding: 50px 0 0;
+}
+}
 @media screen and (max-width: 480px) {
+  .news-input-head input {
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: none;
+    border-right: 1px solid #565656;
+}
+.news-input-head button {
+  border-radius: 0px 0px 8px 8px;
+  height: 50px;
+}
+.news-input-head {
+  grid-template-columns: 1fr;
+  margin-bottom: 40px;
+}
   .top-banner{
     display: block;
   }

@@ -74,7 +74,7 @@ const getGoals=async()=>{
   return (
     <div>
     <MiniHeader head='Goals' />
-    <div style={{display:'flex', gap:"24px",marginTop:"20px"}}>
+    <div className='goals-wrapper'>
     <div style={{width:"40%"}}>
     <img  src='/images/goals.png'/>
     </div>
@@ -89,7 +89,7 @@ to your Goals</h4>
 <button className='goal-btn' onClick={submit}>Add</button>
 </div>
 {goals.length>0 &&<>
-  <span className='goal-span'>Delete</span>
+  <span className='goal-span'> Delete</span>
   <div className='input-head'>
 
  <select
@@ -103,7 +103,7 @@ to your Goals</p>
   </option>
   {getCountry()}
   </select>
-<button className='goal-btn btn-save' onClick={deleteGoal}>Delete</button>
+<button className='goal-btn btn-save' onClick={deleteGoal}><img src='\images\delete-icon.svg'/>Delete</button>
 </div></>}
 </div>
 </div>

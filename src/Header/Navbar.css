@@ -42,4 +42,16 @@
   font-size: 15px;
   margin-left: 30px;
 }
+div#basic-navbar-nav button {
+  background: #FF4F5A;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+}
 
+/* responsive****************************************************************************************** */
+@media(max-width:576px){
+  .top_nav .navbar .header-logo-top {
+    width: 15%;
+  }
+}

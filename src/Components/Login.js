@@ -28,6 +28,7 @@ const togglePassword =()=>{
 }
 
 const handleChange=(e)=>{
+  console.log("byhuugggh")
   if(error){
   setError(null)
   }
@@ -50,13 +51,17 @@ const validateEmail = (email) => {
     e.preventDefault()
     if (!validateEmail(obj.email)) {
       setError('Invalid Email');
+      return
     }
 
     if (obj.password.length < 8) {
+      console.log('here')
       setError('Password must be at least 8 chars long');
+        return
     }
+    console.log('he',error)
     if(!error){
-console.log('here')
+console.log('heres',error)
 try{
   const response = await axios.post(`${url}/login`,obj) 
   const token = JSON.stringify(response.data.token);
@@ -128,21 +133,19 @@ const onChangePhoto = async(e) => {
 
   return (
   <>
-   {login =="login" && <div  >
+   {login =="login" && <div className='login-wrapper'  >
    <form onSubmit={submit}>
    {error && <div style={{ color: 'red' }}>{error}</div>}
-  <div style={{display:'flex',padding:"20px"}}>
+  <div className='login-inner'>
   
-  <div style={{width:'50%'}}>
+  <div className='login-img-wrapper'>
   <img className='img-fluid' src='/images/login.png' />
     </div>
 
-    <div style={{width:'50%'}} >
+    <div className='login-input-wrapper'>
     <h2 className='mb-0'>Welcome!</h2>
     <p>Login your account here</p>
 
-    
-   
     <div className="mb-3 input-box">
      
      <FaUser/> <input
@@ -197,16 +200,15 @@ const onChangePhoto = async(e) => {
     </div>
     </form>
     </div>}
-  {login=='signup'&& <div>
+  {login=='signup'&& <div className='signup-wrapper'>
   <form onSubmit={signup}>
   {error && <div style={{ color: 'red' }}>{error}</div>}
   <h2>Sign up</h2>
   <p>Create your account here</p>
-  <div style={{display:'flex',gap:"24px"}}>
+  <div className='signup-inner-wrapper'>
   
-  <div style={{width:'50%'}}>
+  <div className='input-feilds-wrapper'>
    
-  
     <div  className="mb-3 input-box">
     
     <FaUser /><input
@@ -220,7 +222,7 @@ const onChangePhoto = async(e) => {
     />
   </div>
   
-    <div  className="mb-3 input-box">
+    <div  className="mb-3 signup-password input-box">
      
     <FaLock /> <input
     type={passwordType}
@@ -248,12 +250,20 @@ const onChangePhoto = async(e) => {
   />
 
   </div>
-  <Button type='submit' className='login-btn'  variant="primary" size="lg">Signup</Button> 
-
-    </div>
-    <div style={{width:'50%'}}>
-    
-    <div  className="mb-3 input-box">
+  <div className="mb-3 input-box">
+       
+       <FaMobile />  <input
+           type="phone"
+           className='inp'
+           name="phone_number"
+           placeholder="Mobile Number"
+           value={obj.phone_number}
+           onChange={handleChange}
+           
+         />
+         
+         </div>
+  <div  className="mb-3 email-wrapper input-box">
      
     <FaEnvelope /> <input
             type="email"
@@ -265,20 +275,13 @@ const onChangePhoto = async(e) => {
             
           />
     </div>
-      
-      <div className="mb-3 input-box">
-       
-      <FaMobile />  <input
-          type="phone"
-          className='inp'
-          name="phone_number"
-          placeholder="Mobile Number"
-          value={obj.phone_number}
-          onChange={handleChange}
-          
-        />
-        
-        </div>
+   
+  
+
+    </div>
+    <div className='image-wrapper'>
+
+        <div className='upload-image'>
         <div className="profile-pic-container">
         <img className="profile-pic" src={image} alt="" />
       </div>
@@ -286,9 +289,9 @@ const onChangePhoto = async(e) => {
       <div className="profile-pic-update-container">
       
         
-          <div className="mb-3">
-            <label htmlFor="profilePhoto" className="form-label">
-              Select a Profile Pic
+          <div className="">
+            <label for="profilePhoto" htmlFor="profilePhoto" className="form-label">
+              Upload Picture <img src='\images\upload-icon.svg'/>
             </label>
             <input
               className="form-control"
@@ -307,13 +310,18 @@ const onChangePhoto = async(e) => {
           />
        
       </div>
-        <p className="text-right">
+      </div>
+       
+   </div>
+   
+   
+    </div>
+    <div className='button-wrapper'>
+   <Button type='submit' className='login-btn'  variant="primary" size="lg">Signup</Button> 
+   <p className="text-right login-link">
         Already have an account? <Link to="#" onClick={toggle}>Login</Link>
      </p>
    </div>
-   
-    </div>
-    
     </form>
     </div>}
     </>

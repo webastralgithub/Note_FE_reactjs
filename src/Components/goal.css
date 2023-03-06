@@ -1,11 +1,10 @@
-.goal-heading{
-    font-family: 'Plus Jakarta Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 30px;
-
-color: #0B394E;
+.goal-heading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: #0B394E;
+    margin-top: 25px;
 }
 .input-head{
     display: flex;
@@ -56,4 +55,61 @@ color: #000000;
 }
 .btn-save{
     background: #FF4F5A;
+}
+button.goal-btn.btn-save img {
+    width: 13px;
+}
+button.goal-btn.btn-save {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.goals-wrapper{
+    display:flex; 
+    gap:24px;
+    margin-top:20px;
+  }
+/* responsive **************************************************************************************************** */
+@media(max-width:992px){
+    .first-input {
+        margin-top: 30px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .goal-span {
+        width: 100%;
+    }
+    .input-head input {
+        flex-basis: auto;
+        width: 48%;
+    }
+    button.goal-btn {
+        width: 48%;
+        flex-basis: auto;
+        padding: 8px;
+    }
+    button.goal-btn.btn-save {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 8px;
+        justify-content: center;
+    }
+    .input-head select {
+        flex-basis: auto;
+        appearance: auto;
+        width: 48%;
+    }
+}
+@media(max-width:576px){
+    .goals-wrapper{
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .goals-wrapper div {
+        width: 100% !important;
+    }
 }
