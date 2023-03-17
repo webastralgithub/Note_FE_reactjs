@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 
 import "./App.css"
-import { Route, Routes, useNavigate,useLocation } from 'react-router-dom'
+import { Route, Routes,useLocation } from 'react-router-dom'
 import Calender from './Components/Calender';
 import Goals from './Components/Goals';
 import Home from './Components/Home';
@@ -24,17 +24,17 @@ import TermsAndCondition from './Components/TermsAndCondition';
 
 const App=()=> {
     
-  const [userDetails, setUserDetails] = useState();
+  
   const [isLoggedIn, setisLoggedIn] = useState(null);
   
   const location = useLocation();
   let HomePageStyling ='content-main container-fluid'
-  if (location.pathname === '/') {
+  if (location.pathname === '/'||location.pathname === '/termsandconditions') {
     HomePageStyling = '';
 }
 
 
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     
@@ -55,7 +55,7 @@ const App=()=> {
      { <Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}
      <div className={HomePageStyling}>
 
-      {isLoggedIn &&<Sidebar />}
+      {isLoggedIn && location.pathname != '/termsandconditions' && <Sidebar />}
       <Routes>
         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn}/>}  />
      

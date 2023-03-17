@@ -3,7 +3,7 @@ import "./style.css";
 const TermsAndCondition = () => {
 
 return(
-    <div className='custom_terms'>
+    <div className='custom_terms container pt-4'>
     <h1 className='terms_heading'>Website Terms & Conditions</h1>
     <p>Welcome to www.katelstewart.com.  Kate L. Stewart and/or her affiliates, partners, and assigns, ("KS") provides website features to you subject to the following Terms and Conditions ("Terms and Conditions”).  The Terms and Conditions govern your use of the World Wide Web site located at www.katelstewart.com, and any associated subpages ("Site").  By accessing, viewing, or using the content, material, or services available on or through this Site, you indicate that you have read and understand these Terms and Conditions, and that you agree to them and intend to be legally bound by them. If you do not agree to these Terms and Conditions, you are not granted permission to use this Site and must exit immediately.
 These Terms and Conditions may be changed at any time.  It is your obligation as a user visiting the Site to familiarize yourself with these Terms and Conditions.  Any change to these Terms and Conditions shall also be effective as to any visitor who has visited the Site before the change was made.</p>
@@ -66,12 +66,15 @@ These Terms and Conditions may be changed at any time.  It is your obligation as
    <p>KS reserves the right to make changes to the Site, policies, and these Terms and Conditions at any time.  If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.  Headings used in these Terms and Conditions are for reference only and shall not affect the interpretation of these Terms and Conditions.</p>
    <h4>15.  Copyright Complaints </h4>
    <p>KS respects the intellectual property of others.  If you believe that your work has been copied in a way that constitutes copyright infringement, please provide KS’s copyright agent the written information specified below.  Please note that this procedure is exclusively for notifying KS that your copyrighted material has been infringed. </p>
-   <p> • An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest;<br/> 
-    • A specific description of the copyrighted work that you claim has been infringed upon;<br/>
-    • A specific description of where the material that you claim is infringing is located on the Site;<br/> 
-    • Your address, telephone number, and e-mail address;<br/>
-    • A statement by you that you have a good-faith belief that the disputed use is not authorized or allowed by the copyright owner, its agent, or the law;<br/> 
-    • A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf. </p>
+   
+   <ul>
+   <li>  An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest;</li> 
+    <li> A specific description of the copyrighted work that you claim has been infringed upon;</li>
+    <li> A specific description of where the material that you claim is infringing is located on the Site;</li> 
+   <li>  Your address, telephone number, and e-mail address;</li>
+   <li>  A statement by you that you have a good-faith belief that the disputed use is not authorized or allowed by the copyright owner, its agent, or the law;</li>
+   <li>  A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf. </li>
+    </ul>
    <p>KS’s Copyright Agent for notice of claims of copyright infringement can be reached as follows:<br/>
 Copyright Agent<br/>
 2366 Eastlake Ave E.<br/>

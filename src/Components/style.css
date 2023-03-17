@@ -447,12 +447,12 @@ a.nav-item img {
 /* responsive start ******************************************************************************/
 
 @media screen and (max-width: 767px){
-  .top_nav .navbar .navbar-nav a:last-child {
+  /* .top_nav .navbar .navbar-nav a:last-child {
     margin-left: 25px !important;
     display: inline-block;
     width: 37%;
     text-align: center;
-}
+} */
   .top-banner {
     flex-direction: column;
     margin-bottom: 20px;
@@ -556,6 +556,14 @@ a.nav-item img {
   .top_nav .navbar .header-logo-top{
     width: 28% !important;
   }
+.li{
+  font-family: 'Inter';
+  font-style: normal;
+  color: #000000;
+  font-weight: 600;
+  font-size: 11.26px;
+  line-height: 14px;
+}
 
   .top-banner .top-banner-left-cnt .top-banner-left-cnt-img img {
     width: 100%;
@@ -722,6 +730,7 @@ input.custom_search_filter{
   line-height: 21px;
   color: #0B394E;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .custom_terms h4{
   font-style: normal;
@@ -730,6 +739,7 @@ input.custom_search_filter{
   line-height: 30px;
   color: #0B394E;
   margin-top: 25px;
+  padding: 10px 0px;
 }
 @media screen and (min-width: 992px){
 
@@ -849,7 +859,7 @@ input.custom_search_filter{
   margin-top: 10px;
 }
 .radio-input-head{
-  width: 350px;
+  width: 295px;
 }
 }
 @media screen and (max-width: 768px){
@@ -870,9 +880,9 @@ input.custom_search_filter{
     width: 45px !important;
   } */
 
-  .main{
+  /* .main{
     padding: 0px 6px 0px 6px !important;
-  }
+  } */
   .custom_symtom_section h4{
     text-align: center !important;
   }
@@ -926,6 +936,27 @@ input.custom_search_filter{
     width: 100% !important;
     margin-bottom: 10px !important;
   }
+  .addnote-child{
+    margin-bottom: 15px;
+  }
+  .tracking_section {
+    display: block !important;
+}
+.tracking_section div{
+width: 100% !important;
+}
+.radio-input-head .bullet-div{
+  margin-right: 20px !important;
+}
+.homework_Section{
+  display: block !important;
+}
+
+.homework_blocks{
+ padding-top: 10px;
+ width: 100% !important;
+}
+
 
 }
 
@@ -943,9 +974,39 @@ input.custom_search_filter{
   height: 39px;
 
 }
-
 @media (max-width: 992px){
 .addnotes-wrapper {
     grid-template-columns: 1fr 1fr;
 }
+}
+
+
+.tracking_section button{
+  border: none !important;
+
+}
+.tracking_section button img{
+  width: 39px;
+  height: 39px;
+}
+
+
+.custom_terms p{
+  line-height: 22px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.custom_terms h5{
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+.custom_terms ul{
+  line-height: 20px;
+}
+.custom_terms ul li{
+  font-size: 12px;
+    font-weight: 500;
+
 }

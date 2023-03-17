@@ -19,15 +19,14 @@ const Projects = () => {
   const[notes,setNotes]=useState()
   const[notesText,setNotesText]=useState("")
   const[notesScreen,setNotesScreen]=useState(false)
-  const [selected, setSelected] = useState();
+  const[title,setTitle]=useState()
+  const [text, setText] = useState();
   const [weekly, setWeekly] = useState();
   const [achieved,setAchieved]=useState()
   const [selectedGoal, setSelectedGoal] = useState();
   const url=process.env.REACT_APP_API_KEY
   
-const title=useRef("")
- 
-  const text=useRef('')
+
   const previous=useRef('')
 
 
@@ -60,10 +59,10 @@ console.log(response.data.data)
     
   console.log('here',from.title)
     
-        title.current=from.title
+       setTitle(from.title)
         setNotesText(from.description)
-        setSelected(from.question_id)
-      text.current=from.description
+        
+   setText(from.description)
       setAchieved(from.goal_rating)
        setWeekly(from.weekly_rating)
        setSelectedGoal(from.goal_id)
@@ -87,7 +86,7 @@ console.log(response.data.data)
     const body ={
     
      
-     title:title.current.value,
+     title:title,
    //  question_id:selected,
 
      description:notesText,
@@ -157,7 +156,7 @@ console.log(body)
   </div>
 </form>
 <label>Title</label>
-<input ref={title} style={{width:'100%',height:"107px"}} type='text'></input>   
+<input value={title} onChange={(e)=>setTitle(e.current.value)} style={{width:'100%',height:"107px"}} type='text'></input>   
 <TextEditor setNotesText={setNotesText} notesText={notesText}/>
 
 

@@ -102,7 +102,7 @@ for ( var key in data ) {
   setHomeworkScreen(true)
 }}>
     <img src='/images/addnote.svg'/>
-   <p>New note</p>
+   <p style={{textAlign:'center'}}>New Homework</p>
     </div>
     { homeworkData?.length>0&& homeworkData.map(note=><div className='addnote-child'>
     <h5>{note.created_at.slice(0,10)}</h5>
@@ -134,12 +134,12 @@ for ( var key in data ) {
   </label>
    
    </div>
-   <div style={{display:'flex',gap:'20px'}}>
-   <div style={{width:'50%'}}>
+   <div style={{display:'flex',gap:'20px'}} className="homework_Section">
+   <div style={{width:'50%'}} className="homework_blocks">
   <p>What is the homework?</p>
  <input name="description"  defaultValue={data.description}  onChange={handleInput} style={{width:'100%',height:"107px"}} type='text'></input>
  </div>
- <div style={{width:'50%'}}>
+ <div style={{width:'50%'}} className="homework_blocks">
   <p>Thoughts, responses, how did it go?
   </p>
  
